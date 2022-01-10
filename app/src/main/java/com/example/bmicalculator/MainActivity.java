@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -36,9 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
                 double BMI  = (weight)/(height*height);
 
+                DecimalFormat df = new DecimalFormat("#.##");
+                double BMI_trimmed = Double.parseDouble(df.format(BMI));
+
                 TextView BMIResult = (TextView)
                         findViewById(R.id.BMIResult);
-                BMIResult.setText(Double.toString(BMI));
+                BMIResult.setText(Double.toString(BMI_trimmed));
 
                 String BMI_Cat;
                 if (BMI < 15)
